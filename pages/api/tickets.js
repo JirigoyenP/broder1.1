@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
         // Verificar si los valores están presentes
         if (!country || !company || !vicePresidency || !description) {
-            return res.status(400).json({ error: 'Todos los campos son requeridos' });
+            return res.status(400).json({ error: 'Todos los campos son requeridos123' });
         }
 
         try {
