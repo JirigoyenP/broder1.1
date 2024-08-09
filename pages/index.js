@@ -15,17 +15,14 @@ export default function Home() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Datos del formulario que se enviarán
+    
         const ticketData = {
-            country, // Ya es la abreviatura seleccionada
+            country,
             company,
             vicePresidency,
             description,
         };
-
-        console.log('Datos enviados:', ticketData); // Debug: Ver los datos que se envían
-
+    
         try {
             const response = await fetch('/api/tickets', {
                 method: 'POST',
@@ -34,11 +31,10 @@ export default function Home() {
                 },
                 body: JSON.stringify(ticketData)
             });
-
+    
             if (response.ok) {
                 const newTicket = await response.json();
                 setTickets(currentTickets => [...currentTickets, newTicket]);
-                // Limpia el formulario después de enviar
                 setCountry('');
                 setCompany('');
                 setVicePresidency('');
@@ -53,7 +49,7 @@ export default function Home() {
 
     return (
         <div>
-            <h1>Sistema de Administración de Tickets</h1>
+            <h1>Sistema de Administración de Tickets 1.1</h1>
             <form onSubmit={handleSubmit}>
                 <select value={country} onChange={e => setCountry(e.target.value)}>
                     <option value="">Seleccione País</option>
