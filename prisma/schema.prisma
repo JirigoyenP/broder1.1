@@ -1,0 +1,19 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Ticket {
+  id             Int      @id @default(autoincrement())
+  country        String   // Nuevo campo para País
+  company        String   // Nuevo campo para Sociedad
+  vicePresidency String   // Nuevo campo para Vicepresidencia
+  ticketNumber   String   @unique
+  description    String   // Descripción del ticket
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
